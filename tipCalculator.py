@@ -7,14 +7,41 @@
 
 #Write your code below this line 👇
 
+#solution not refactored
+
+# print("Welcom to the tip calculator.")
+
+# bill_total = input("What was the total bill? $")
+
+# tip_percentage = input("What percentage tip would you like to give? 10, 12, or 15? ")
+
+# bill_split = input("How many people to split the bill? ")
+
+# pay_per_person = round((float(bill_total) / int(bill_split)) * (1 + (int(tip_percentage) / 100)), 2) 
+
+# print(f"Each person should pay: {pay_per_person}")
+
+
+# refactored solution code
+
 print("Welcom to the tip calculator.")
 
-bill_total = input("What was the total bill? $")
+bill = float(input("What was the total bill? $"))
 
-tip_percentage = input("What percentage tip would you like to give? 10, 12, or 15? ")
+tip = int(input("What percentage tip would you like to give? 10, 12, or 15? "))
 
-bill_split = input("How many people to split the bill? ")
+people = int(input("How many people to split the bill? "))
 
-pay_per_person = round((float(bill_total) / int(bill_split)) * (1 + (int(tip_percentage) / 100)), 2) 
+tip_as_percent = tip / 100
 
-print(f"Each person should pay: {pay_per_person}")
+total_tip_amount = bill * tip_as_percent
+
+total_bill = bill + total_tip_amount
+
+bill_per_person = total_bill / people
+
+final_amount = round(bill_per_person, 2)
+
+final_amount = "{:.2f}".format(bill_per_person)
+
+print(f"Each person should pay: ${final_amount}")
